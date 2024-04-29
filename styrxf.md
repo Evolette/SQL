@@ -46,5 +46,42 @@
  - fio (VARCHAR(50)) - ФИО автора
  - date_of_birth (TEXT) - дата рождения автора
 
+ ### UNION
 
 
+### ORDER BY
+
+
+### HAVING
+
+
+### Вложеный Запрос:
+
+## SELECT
+
+## WHERE
+
+
+### Оконные функции 
+
+## Агрегатные функции
+
+## Ранжирующие функции
+
+## Функции смещения
+
+### JOIN 
+
+## INNER JOIN
+
+## LEFT JOIN
+
+## RIGHT JOIN
+
+## FULL OUTER JOIN 
+
+## CROSS JOIN
+
+### CASE 
+
+### WITH
