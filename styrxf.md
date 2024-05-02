@@ -63,9 +63,15 @@ FROM Books
 ORDER BY price DESC;
 ```
 ![screen](screenshots/image8.png)
+
 ## HAVING
 ```
+SELECT genre, AVG(price) AS AvgPrice
+FROM Books
+GROUP BY genre
+HAVING AVG(price) > 500;
 ```
+![screen](screenshots/image9.png)
 
 ## Вложеный Запрос
 ```
