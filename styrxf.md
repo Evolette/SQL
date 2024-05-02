@@ -125,10 +125,22 @@ GROUP BY id_readers;
 SELECT title, genre, price, RANK() OVER (PARTITION BY genre ORDER BY price DESC) as price_rank
 FROM Books;
 ```
-![screen](screenshots/image12.png)
+![screen](screenshots/image13.png)
+
+-Результат 
+
+ Книги упорядочены по жанру, а затем по цене в убывающем порядке в рамках каждого жанра
+
 ### Функции смещения
 ```
+SELECT title, genre, year_of_Publishing
+FROM Books
+WHERE genre = 'horror'
+ORDER BY year_of_Publishing
+LIMIT 3 OFFSET 1;
 ```
+![screen](screenshots/image14.png)
+
 ## JOIN 
 
 ### INNER JOIN
