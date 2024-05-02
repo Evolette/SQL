@@ -57,38 +57,58 @@ FROM Readers;
 ![screen](screenshots/image7.png)
 
 ## ORDER BY
-
-
+```
+SELECT title, price
+FROM Books
+ORDER BY price DESC;
+```
+![screen](screenshots/image8.png)
 ## HAVING
-
+```
+```
 
 ## Вложеный Запрос
-
+```
+```
 ### SELECT
-
+```
+```
 ### WHERE
-
+```
+```
 
 ## Оконные функции 
-
+```
+```
 ### Агрегатные функции
-
+```
+```
 ### Ранжирующие функции
-
+```
+```
 ### Функции смещения
-
+```
+```
 ## JOIN 
 
 ### INNER JOIN
-
+```
+```
 ### LEFT JOIN
-
+```
+```
 ### RIGHT JOIN
-
+```
+```
 ### FULL OUTER JOIN 
-
+```
+```
 ### CROSS JOIN
-
+```
+```
 ## CASE 
-
+```
+```
 ## WITH
+```
+```
