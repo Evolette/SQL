@@ -104,7 +104,7 @@ HAVING AVG(price) > (
     FROM Books
 );
 ```
-![screen](screenshots/image10.png)
+![screen](screenshots/image22.png)
 
 - Результат 
 
