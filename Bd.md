@@ -28,5 +28,5 @@ CREATE TABLE Author (
 Author_id INTEGER PRIMARY key,
 fio VARCHAR(50),
 date_of_birth TEXT(50)
-title_of_book VARCHAR(50)                                                                                                                                                                                                                         
+title_of_book VARCHAR(50));                                                                                                                                                      
 ```
