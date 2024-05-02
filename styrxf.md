@@ -94,6 +94,7 @@ HAVING AVG(price) > 500;
 ### 6.1 SELECT
 ```
 ```
+![screen](screenshots/image22.png)
 ### 6.2 WHERE 
 ```
 SELECT genre
@@ -104,7 +105,7 @@ HAVING AVG(price) > (
     FROM Books
 );
 ```
-![screen](screenshots/image11.png)
+![screen](screenshots/image10.png)
 
 - Результат 
 
