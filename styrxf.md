@@ -18,7 +18,7 @@
  - year_of_Publishing (DATE) - год издания книги
  - id_author (INT) - идентификатор автора книги, связан с таблицей Author по полю Author_id
 
- ### 2.2Таблица Taken_books:
+ ### 2.2 Таблица Taken_books:
 ![screen](screenshots/image6.png)
 
  - Taken_books_id (INTEGER, PRIMARY KEY) - уникальный идентификатор взятой книги
