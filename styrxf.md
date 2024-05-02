@@ -4,12 +4,12 @@
 
 Эта База данных используется для упарвления информацией о книгах, читателях, авторах и арендованных книгах.
 
-![147](https://cdn.discordapp.com/attachments/1225378430086942720/1227237903030288534/147.png?ex=662d9c1d&is=662c4a9d&hm=f2cb54019357b0f61486c86a891fbb0afffdbf5ed4317ada63b29c2bc1a44a3b&)
+![screen](screenshots/image2.png)
 
 
 
 ### Таблица Books
-![Фото](https://cdn.discordapp.com/attachments/1155576287969169439/1234407179206004788/image.png?ex=66309ec5&is=662f4d45&hm=2426b1bde8210e9a3346c807d8fc8e2e27b8ec5664cc8b7ce7b85da3245280cb&)
+![screen](screenshots/image3.png)
 
  - booksID (INTEGER, PRIMARY KEY) - уникальный идентификатор книги
  - title (VARCHAR(50)) - название книги
@@ -19,7 +19,7 @@
  - id_author (INT) - идентификатор автора книги, связан с таблицей Author по полю Author_id
 
  ### Таблица Taken_books:
-![Изображения](https://cdn.discordapp.com/attachments/1155576287969169439/1234407179206004788/image.png?ex=66309ec5&is=662f4d45&hm=2426b1bde8210e9a3346c807d8fc8e2e27b8ec5664cc8b7ce7b85da3245280cb&)
+![screen](screenshots/image4.png)
 
  - Taken_books_id (INTEGER, PRIMARY KEY) - уникальный идентификатор взятой книги
  - id_books (INT) - идентификатор книги, связан с таблицей Books по полю booksID
@@ -30,7 +30,7 @@
 
 
 ### Таблица Readers:
-![image](https://cdn.discordapp.com/attachments/1155576287969169439/1234407245614420089/image.png?ex=66309ed5&is=662f4d55&hm=0485553aaea906a5c3a532cd1f5491858cda9d9a8660e1ed28c78e6644958bd5&)
+![screen](screenshots/image5.png)
 
  - readers_id (INTEGER, PRIMARY KEY) - уникальный идентификатор читателя
  - fio (VARCHAR(50)) - ФИО читателя
@@ -40,14 +40,14 @@
 
 
 ### Таблица Author:
-![image2](https://cdn.discordapp.com/attachments/1155576287969169439/1234407245614420089/image.png?ex=66309ed5&is=662f4d55&hm=0485553aaea906a5c3a532cd1f5491858cda9d9a8660e1ed28c78e6644958bd5&)
+![screen](screenshots/image6.png)
 
  - Author_id (INTEGER, PRIMARY KEY) - уникальный идентификатор автора
  - fio (VARCHAR(50)) - ФИО автора
  - date_of_birth (TEXT) - дата рождения автора
 
 ## UNION
-![screen](screenshots/image.png)
+![screen](screenshots/image7.png)
 
 ## ORDER BY
 
