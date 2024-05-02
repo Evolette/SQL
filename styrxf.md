@@ -47,7 +47,7 @@
  - date_of_birth (TEXT) - дата рождения автора
 
 ## UNION
-![screen](screenshots/screenshots.PNG)
+![screen](screenshots/screenshots.png)
 
 ## ORDER BY
 
