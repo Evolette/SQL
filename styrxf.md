@@ -40,7 +40,7 @@
 
 
 ### Таблица Author:
-![screen](screenshots/image6.png)
+![screen](Screenshots/22.webp)
 
  - Author_id (INTEGER, PRIMARY KEY) - уникальный идентификатор автора
  - fio (VARCHAR(50)) - ФИО автора
