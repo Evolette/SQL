@@ -45,7 +45,7 @@
  - Author_id (INTEGER, PRIMARY KEY) - уникальный идентификатор автора
  - fio (VARCHAR(50)) - ФИО автора
  - date_of_birth (TEXT) - дата рождения автора
-
+ - title_of_books (VARCHAR(50)) - название книги 
 ## UNION
 ```
 SELECT title AS Name
