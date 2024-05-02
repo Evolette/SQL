@@ -47,7 +47,7 @@
  - date_of_birth (TEXT) - дата рождения автора
 
 ## UNION
-
+![image](Фото)
 
 ## ORDER BY
 
