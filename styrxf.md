@@ -109,7 +109,7 @@ HAVING AVG(price) > (
 
 ## Оконные функции 
 
-### Агрегатные функции
+## Агрегатные функции
 ```
 SELECT id_readers, COUNT(*) AS num_taken_books
 FROM Taken_books
