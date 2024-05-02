@@ -148,27 +148,91 @@ LIMIT 3 OFFSET 1;
 
 ### INNER JOIN
 ```
+SELECT Readers.fio AS ReadersName, Books.title, Author.fio AS AuthorName, Taken_books.date_of_collection
+FROM Taken_books
+INNER JOIN Books ON Taken_books.Taken_books_id = Books.books_id
+INNER JOIN Readers ON Taken_books.id_readers = Readers.readers_id
+INNER JOIN Author ON Books.id_author = Author.Author_id;
 ```
 ![screen](screenshots/image15.png)
+- Результат
+
+Каждая строка в результате будет представлять информацию о конкретной книге, взятой читателем, включая название книги, имя автора, имя читателя и дату взятия книги
+
 ### LEFT JOIN
 ```
+SELECT Readers.fio AS ReadersName, Books.title AS BooksTitile, Author.fio AS AuthorName
+FROM Readers
+LEFT JOIN Taken_books ON Readers.readers_id = 	Taken_books.id_readers
+LEFT JOIN Books ON Taken_books.id_books = Books.books_id
+LEFT JOIN Author ON Books.id_author = Author.Author_id;
 ```
 ![screen](screenshots/image16.png)
+- Результат
+
+Каждая строка в результате будет представлять информацию о конкретной книге, взятой читателем, включая название книги, имя автора и имя читателя
+
 ### RIGHT JOIN
 ```
+SELECT Books.title AS BooksTitle, Readers.fio AS ReadersName, Author.fio as AuthorName
+FROM Books
+RIGHT JOIN Taken_books ON Books.books_id = 	Taken_books.id_books
+RIGHT JOIN Readers ON Taken_books.id_readers = Readers.readers_id
+RIGHT JOIN Author ON Books.id_author = Author.Author_id;
 ```
 ![screen](screenshots/image17.png)
+- Результат
+
+Каждая строка представляет информацию о конкретной книге, включая данные о читателе, названии книги и авторе
+
 ### FULL OUTER JOIN 
 ```
+SELECT Books.title AS BooksTitle, Readers.fio AS ReadersName, Author.fio as AuthorName
+FROM Books
+FULL OUTER JOIN Taken_books ON Books.books_id = 	Taken_books.id_books
+FULL OUTER Readers ON Taken_books.id_readers = Readers.readers_id
+FULL OUTER Author ON Books.id_author = Author.Author_id;
 ```
 ![screen](screenshots/image18.png)
+- Результат
+
+ Таблица будет содержать информацию о книгах, именах читателей, именах авторов и связях между ними на основе указанных ключей
+
 ### CROSS JOIN
 ```
+SELECT Author.date_of_birth, Readers.date_of_birth
+FROM Author
+CROSS JOIN Readers;
 ```
 ![screen](screenshots/image19.png)
+- Результат
+
+Таблица будет содержать все возможные комбинации дат рождения авторов и читателей из исходных таблиц Author и Readers
+
 ## CASE 
 ```
+SELECT title, genre,
+       CASE
+           WHEN price < 100 THEN 'Дешевые'
+           WHEN price BETWEEN 100 AND 300 THEN 'Средние'
+           ELSE 'Дорогие'
+       END AS price_category
+FROM Books;
 ```
+![screen](screenshots/image20.png)
+
+- Результат
+
+Этот запрос выбирает поля title и genre из таблицы Books, а также добавляет дополнительное вычисляемое поле price_category, которое определяет категорию цен для каждой книги на основе её цены
+
 ## WITH
 ```
+WITH Readers_taken_books AS 
+	(SELECT Readers.* FROM Taken_books 
+     	INNER JOIN Readers on Readers.readers_id = Taken_books.Taken_books_id)
+SELECT * FROM Readers_taken_books;
 ```
+![screen](screenshots/image21.png)
+- Результат
+
+ Таблица будет содержать все столбцы из таблицы Readers, отфильтрованные по читателям, которые взяли книги. Каждая строка результата будет представлять информацию о читателе, который взял книгу
