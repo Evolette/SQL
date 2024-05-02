@@ -40,7 +40,7 @@
 
 
 ### 2.4 Таблица Author:
-![screen](screenshots/22.webp)
+![screen](screenshots/image22.png)
 
  - Author_id (INTEGER, PRIMARY KEY) - уникальный идентификатор автора
  - fio (VARCHAR(50)) - ФИО автора
@@ -93,8 +93,16 @@ HAVING AVG(price) > 500;
 
 ### 6.1 SELECT
 ```
+SELECT title, price, price - (SELECT AVG(price) FROM Books) AS "Разница"
+FROM Books
+WHERE price - (SELECT AVG(price) FROM Books) > 0;
 ```
-![screen](screenshots/image22.png)
+![screen](screenshots/image23.png)
+
+- Результат
+
+Таблица будет  содержать список книг, у которых цена выше средней цены всех книг
+
 ### 6.2 WHERE 
 ```
 SELECT genre
