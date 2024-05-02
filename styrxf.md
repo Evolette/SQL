@@ -47,6 +47,13 @@
  - date_of_birth (TEXT) - дата рождения автора
 
 ## UNION
+```
+SELECT title AS Name
+FROM Books
+UNION
+SELECT fio AS Name
+FROM Readers;
+```
 ![screen](screenshots/image7.png)
 
 ## ORDER BY
