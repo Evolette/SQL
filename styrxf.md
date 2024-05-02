@@ -140,24 +140,32 @@ ORDER BY year_of_Publishing
 LIMIT 3 OFFSET 1;
 ```
 ![screen](screenshots/image14.png)
+- Результат
+
+Запрос запрос создаст таблицу, содержащую информацию о трех книгах в жанре "horror", начиная со второй по дате публикации
 
 ## JOIN 
 
 ### INNER JOIN
 ```
 ```
+![screen](screenshots/image15.png)
 ### LEFT JOIN
 ```
 ```
+![screen](screenshots/image16.png)
 ### RIGHT JOIN
 ```
 ```
+![screen](screenshots/image17.png)
 ### FULL OUTER JOIN 
 ```
 ```
+![screen](screenshots/image18.png)
 ### CROSS JOIN
 ```
 ```
+![screen](screenshots/image19.png)
 ## CASE 
 ```
 ```
