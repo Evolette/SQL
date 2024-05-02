@@ -1,6 +1,6 @@
 # Синтяева Елена Витальевна ИС/22-9-1
 
-## Описание базы данных "Library"
+## 2. Описание базы данных "Library"
 
 Эта База данных используется для упарвления информацией о книгах, читателях, авторах и арендованных книгах.
 
@@ -8,7 +8,7 @@
 
 
 
-### Таблица Books
+### 2.1 Таблица Books
 ![screen](screenshots/image3.png)
 
  - booksID (INTEGER, PRIMARY KEY) - уникальный идентификатор книги
@@ -18,7 +18,7 @@
  - year_of_Publishing (DATE) - год издания книги
  - id_author (INT) - идентификатор автора книги, связан с таблицей Author по полю Author_id
 
- ### Таблица Taken_books:
+ ### 2.2Таблица Taken_books:
 ![screen](screenshots/image6.png)
 
  - Taken_books_id (INTEGER, PRIMARY KEY) - уникальный идентификатор взятой книги
@@ -29,7 +29,7 @@
 Связи: таблица связана с таблицами Books (по id_books) и Readers (по id_readers)
 
 
-### Таблица Readers:
+### 2.3 Таблица Readers:
 ![screen](screenshots/image5.png)
 
  - readers_id (INTEGER, PRIMARY KEY) - уникальный идентификатор читателя
@@ -39,14 +39,14 @@
  - date_of_birth (TEXT) - дата рождения читателя
 
 
-### Таблица Author:
+### 2.4 Таблица Author:
 ![screen](screenshots/22.webp)
 
  - Author_id (INTEGER, PRIMARY KEY) - уникальный идентификатор автора
  - fio (VARCHAR(50)) - ФИО автора
  - date_of_birth (TEXT) - дата рождения автора
  - title_of_books (VARCHAR(50)) - название книги 
-## UNION
+## 3. UNION
 ```
 SELECT title AS Name
 FROM Books
@@ -62,7 +62,7 @@ Name - общее название для имен из столбцов "title"
 
 Таблица будет состоять из уникальных значений из столбцов "title" таблицы "Books" и "fio" таблицы "Readers", объединенных в общем столбце "Name"
 
-## ORDER BY
+## 4. ORDER BY
 ```
 SELECT title, price
 FROM Books
@@ -75,7 +75,7 @@ ORDER BY price DESC;
 
 Таблица будет отсортирована по столбцу "price" по убыванию, то есть книги будут расположены в порядке от самой дорогой книги до самой дешевой.
 
-## HAVING
+## 5. HAVING
 ```
 SELECT genre, AVG(price) AS AvgPrice
 FROM Books
@@ -89,9 +89,12 @@ HAVING AVG(price) > 500;
 
 Таблица будет содержать только те жанры книг, где средняя цена книги превышает 500, вместе с соответствующими средними ценами.
 
-## Вложеный Запрос
+## 6. Вложеный Запрос
 
-### SELECT
+### 6.1 SELECT
+```
+```
+### 6.2 WHERE 
 ```
 SELECT genre
 FROM Books
@@ -107,9 +110,9 @@ HAVING AVG(price) > (
 
 Этот выбирает жанры книг, у которых средняя цена выше средней цены по всем книгам в таблице
 
-## Оконные функции 
+## 7. BОконные функции 
 
-### Агрегатные функции
+### 7.1 Агрегатные функции
 ```
 SELECT id_readers, COUNT(*) AS num_taken_books
 FROM Taken_books
@@ -120,7 +123,7 @@ GROUP BY id_readers;
 
  Количество взятых книг для каждого читателя из таблицы Taken_books. Затем результаты группируются по id_readers с использованием функции COUNT(*) для подсчета числа взятых книг каждым читателем.
 
-### Ранжирующие функции
+### 7.2 Ранжирующие функции
 ```
 SELECT title, genre, price, RANK() OVER (PARTITION BY genre ORDER BY price DESC) as price_rank
 FROM Books;
@@ -131,7 +134,7 @@ FROM Books;
 
  Книги упорядочены по жанру, а затем по цене в убывающем порядке в рамках каждого жанра
 
-### Функции смещения
+### 7.3 Функции смещения
 ```
 SELECT title, genre, year_of_Publishing
 FROM Books
@@ -144,9 +147,9 @@ LIMIT 3 OFFSET 1;
 
 Запрос запрос создаст таблицу, содержащую информацию о трех книгах в жанре "horror", начиная со второй по дате публикации
 
-## JOIN 
+## 8. JOIN 
 
-### INNER JOIN
+### 8.1 INNER JOIN
 ```
 SELECT Readers.fio AS ReadersName, Books.title, Author.fio AS AuthorName, Taken_books.date_of_collection
 FROM Taken_books
@@ -159,7 +162,7 @@ INNER JOIN Author ON Books.id_author = Author.Author_id;
 
 Каждая строка в результате будет представлять информацию о конкретной книге, взятой читателем, включая название книги, имя автора, имя читателя и дату взятия книги
 
-### LEFT JOIN
+### 8.2 LEFT JOIN
 ```
 SELECT Readers.fio AS ReadersName, Books.title AS BooksTitile, Author.fio AS AuthorName
 FROM Readers
@@ -172,7 +175,7 @@ LEFT JOIN Author ON Books.id_author = Author.Author_id;
 
 Каждая строка в результате будет представлять информацию о конкретной книге, взятой читателем, включая название книги, имя автора и имя читателя
 
-### RIGHT JOIN
+### 8.3 RIGHT JOIN
 ```
 SELECT Books.title AS BooksTitle, Readers.fio AS ReadersName, Author.fio as AuthorName
 FROM Books
@@ -185,7 +188,7 @@ RIGHT JOIN Author ON Books.id_author = Author.Author_id;
 
 Каждая строка представляет информацию о конкретной книге, включая данные о читателе, названии книги и авторе
 
-### FULL OUTER JOIN 
+### 8.4 FULL OUTER JOIN 
 ```
 SELECT Books.title AS BooksTitle, Readers.fio AS ReadersName, Author.fio as AuthorName
 FROM Books
@@ -198,7 +201,7 @@ FULL OUTER Author ON Books.id_author = Author.Author_id;
 
  Таблица будет содержать информацию о книгах, именах читателей, именах авторов и связях между ними на основе указанных ключей
 
-### CROSS JOIN
+### 8.5 CROSS JOIN
 ```
 SELECT Author.date_of_birth, Readers.date_of_birth
 FROM Author
@@ -209,7 +212,7 @@ CROSS JOIN Readers;
 
 Таблица будет содержать все возможные комбинации дат рождения авторов и читателей из исходных таблиц Author и Readers
 
-## CASE 
+## 9. CASE 
 ```
 SELECT title, genre,
        CASE
@@ -225,7 +228,7 @@ FROM Books;
 
 Этот запрос выбирает поля title и genre из таблицы Books, а также добавляет дополнительное вычисляемое поле price_category, которое определяет категорию цен для каждой книги на основе её цены
 
-## WITH
+## 10. WITH
 ```
 WITH Readers_taken_books AS 
 	(SELECT Readers.* FROM Taken_books 
