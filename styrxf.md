@@ -107,16 +107,8 @@ HAVING AVG(price) > (
 
 Этот запрос выбирает жанры книг, у которых средняя цена выше средней цены по всем книгам в таблице
 
-### Оконные функции 
-```
-SELECT title, genre, ROW_NUMBER() OVER (PARTITION BY genre ORDER BY title) as row_num
-FROM Books;
-```
-![screen](screenshots/image11.png)
+## Оконные функции 
 
--Результат 
-
- В таблице лишь добавляется новый столбец `row_num` с порядковыми номерами строк в рамках каждого жанра.
 ### Агрегатные функции
 ```
 SELECT id_readers, COUNT(*) AS num_taken_books
@@ -128,10 +120,13 @@ GROUP BY id_readers;
 
  Количество взятых книг для каждого читателя из таблицы Taken_books. Затем результаты группируются по id_readers с использованием функции COUNT(*) для подсчета числа взятых книг каждым читателем.
 
-### Ранжирующие функции
+## Ранжирующие функции
 ```
+SELECT title, genre, price, RANK() OVER (PARTITION BY genre ORDER BY price DESC) as price_rank
+FROM Books;
 ```
-### Функции смещения
+![screen](screenshots/image12.png)
+## Функции смещения
 ```
 ```
 ## JOIN 
