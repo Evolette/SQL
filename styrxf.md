@@ -19,7 +19,7 @@
  - id_author (INT) - идентификатор автора книги, связан с таблицей Author по полю Author_id
 
  ### Таблица Taken_books:
-![screen](screenshots/image4.png)
+![screen](screenshots/image6.png)
 
  - Taken_books_id (INTEGER, PRIMARY KEY) - уникальный идентификатор взятой книги
  - id_books (INT) - идентификатор книги, связан с таблицей Books по полю booksID
