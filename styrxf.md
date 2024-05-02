@@ -105,7 +105,7 @@ HAVING AVG(price) > (
 
 - Результат 
 
-Этот запрос выбирает жанры книг, у которых средняя цена выше средней цены по всем книгам в таблице
+Этот выбирает жанры книг, у которых средняя цена выше средней цены по всем книгам в таблице
 
 ## Оконные функции 
 
@@ -163,7 +163,7 @@ INNER JOIN Author ON Books.id_author = Author.Author_id;
 ```
 SELECT Readers.fio AS ReadersName, Books.title AS BooksTitile, Author.fio AS AuthorName
 FROM Readers
-LEFT JOIN Taken_books ON Readers.readers_id = 	Taken_books.id_readers
+LEFT JOIN Taken_books ON Readers.readers_id = Taken_books.id_readers
 LEFT JOIN Books ON Taken_books.id_books = Books.books_id
 LEFT JOIN Author ON Books.id_author = Author.Author_id;
 ```
@@ -176,7 +176,7 @@ LEFT JOIN Author ON Books.id_author = Author.Author_id;
 ```
 SELECT Books.title AS BooksTitle, Readers.fio AS ReadersName, Author.fio as AuthorName
 FROM Books
-RIGHT JOIN Taken_books ON Books.books_id = 	Taken_books.id_books
+RIGHT JOIN Taken_books ON Books.books_id = Taken_books.id_books
 RIGHT JOIN Readers ON Taken_books.id_readers = Readers.readers_id
 RIGHT JOIN Author ON Books.id_author = Author.Author_id;
 ```
@@ -189,7 +189,7 @@ RIGHT JOIN Author ON Books.id_author = Author.Author_id;
 ```
 SELECT Books.title AS BooksTitle, Readers.fio AS ReadersName, Author.fio as AuthorName
 FROM Books
-FULL OUTER JOIN Taken_books ON Books.books_id = 	Taken_books.id_books
+FULL OUTER JOIN Taken_books ON Books.books_id = Taken_books.id_books
 FULL OUTER Readers ON Taken_books.id_readers = Readers.readers_id
 FULL OUTER Author ON Books.id_author = Author.Author_id;
 ```
