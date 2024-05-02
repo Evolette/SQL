@@ -109,7 +109,7 @@ HAVING AVG(price) > (
 
 ## Оконные функции 
 
-## Агрегатные функции
+### Агрегатные функции
 ```
 SELECT id_readers, COUNT(*) AS num_taken_books
 FROM Taken_books
@@ -120,13 +120,13 @@ GROUP BY id_readers;
 
  Количество взятых книг для каждого читателя из таблицы Taken_books. Затем результаты группируются по id_readers с использованием функции COUNT(*) для подсчета числа взятых книг каждым читателем.
 
-## Ранжирующие функции
+### Ранжирующие функции
 ```
 SELECT title, genre, price, RANK() OVER (PARTITION BY genre ORDER BY price DESC) as price_rank
 FROM Books;
 ```
 ![screen](screenshots/image12.png)
-## Функции смещения
+### Функции смещения
 ```
 ```
 ## JOIN 
