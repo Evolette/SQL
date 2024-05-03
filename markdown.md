@@ -21,6 +21,7 @@
 ```
 SELECT * FROM Books;
 ```
+![screen](screenshots/image1.png)
  ### 2.2 Таблица Taken_books:
 ![screen](screenshots/image6.png)
 
@@ -34,6 +35,7 @@ SELECT * FROM Books;
 ```
 SELECT * FROM Taken_books;
 ```
+![screen](screenshots/image25.png)
 
 ### 2.3 Таблица Readers:
 ![screen](screenshots/image5.png)
@@ -47,7 +49,6 @@ SELECT * FROM Taken_books;
 ```
 SELECT * FROM Readers;
 ```
-
 ### 2.4 Таблица Author:
 ![screen](screenshots/image22.png)
 
@@ -59,6 +60,7 @@ SELECT * FROM Readers;
 ```
 SELECT * FROM Author;
 ```
+![screen](screenshots/image24.png)
 
 ## 3. UNION
 ```
