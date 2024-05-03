@@ -49,6 +49,8 @@ SELECT * FROM Taken_books;
 ```
 SELECT * FROM Readers;
 ```
+![screen](screenshots/image26.png)
+
 ### 2.4 Таблица Author:
 ![screen](screenshots/image22.png)
 
