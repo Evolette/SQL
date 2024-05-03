@@ -18,6 +18,9 @@
  - year_of_Publishing (DATE) - год издания книги
  - id_author (INT) - идентификатор автора книги, связан с таблицей Author по полю Author_id
 
+```
+SELECT * FROM Books;
+```
  ### 2.2 Таблица Taken_books:
 ![screen](screenshots/image6.png)
 
@@ -28,6 +31,9 @@
  - date_of_return (TEXT) - дата возврата книги
 Связи: таблица связана с таблицами Books (по id_books) и Readers (по id_readers)
 
+```
+SELECT * FROM Taken_books;
+```
 
 ### 2.3 Таблица Readers:
 ![screen](screenshots/image5.png)
@@ -37,7 +43,10 @@
  - telephone (VARCHAR(50)) - телефон читателя
  - e_mail (VARCHAR(50)) - электронная почта читателя
  - date_of_birth (TEXT) - дата рождения читателя
-
+   
+```
+SELECT * FROM Readers;
+```
 
 ### 2.4 Таблица Author:
 ![screen](screenshots/image22.png)
@@ -45,7 +54,12 @@
  - Author_id (INTEGER, PRIMARY KEY) - уникальный идентификатор автора
  - fio (VARCHAR(50)) - ФИО автора
  - date_of_birth (TEXT) - дата рождения автора
- - title_of_books (VARCHAR(50)) - название книги 
+ - title_of_books (VARCHAR(50)) - название книги
+
+```
+SELECT * FROM Author;
+```
+
 ## 3. UNION
 ```
 SELECT title AS Name
