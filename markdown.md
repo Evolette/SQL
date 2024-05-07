@@ -9,7 +9,7 @@
 
 
 ### 2.1 Таблица Books
-![screen](screenshots/image38.png)
+![screen](screenshots/image47.png)
 
  - books_id (INTEGER, PRIMARY KEY) - уникальный идентификатор книги
  - title (VARCHAR(50)) - название книги
@@ -23,7 +23,7 @@ SELECT * FROM Books;
 ```
 ![screen](screenshots/image1.png)
  ### 2.2 Таблица Taken_books:
-![screen](screenshots/image37.png)
+![screen](screenshots/image48.png)
 
  - Taken_books_id (INTEGER, PRIMARY KEY) - уникальный идентификатор взятой книги
  - id_books (INT) - идентификатор книги, связан с таблицей Books по полю booksID
@@ -38,7 +38,7 @@ SELECT * FROM Taken_books;
 ![screen](screenshots/image25.png)
 
 ### 2.3 Таблица Readers:
-![screen](screenshots/image36.png)
+![screen](screenshots/image49.png)
 
  - readers_id (INTEGER, PRIMARY KEY) - уникальный идентификатор читателя
  - fio (VARCHAR(50)) - ФИО читателя
@@ -49,7 +49,7 @@ SELECT * FROM Taken_books;
 ```
 SELECT * FROM Readers;
 ```
-![screen](screenshots/image26.png)
+![screen](screenshots/image50.png)
 
 ### 2.4 Таблица Author:
 ![screen](screenshots/image22.png)
@@ -141,11 +141,11 @@ HAVING AVG(price) > (
 
 ### 7.1 Агрегатные функции
 ```
-SELECT id_readers, COUNT(*) AS num_taken_books
+SELECT id_reader, COUNT(*) AS num_taken_books
 FROM Taken_books
 GROUP BY id_reader;
 ```
-![screen](screenshots/image12.png)
+![screen](screenshots/image46.png)
 - Результат 
 
  Количество взятых книг для каждого читателя из таблицы Taken_books. Затем результаты группируются по id_readers с использованием функции COUNT(*) для подсчета числа взятых книг каждым читателем.
@@ -184,7 +184,7 @@ INNER JOIN Books ON Taken_books.Taken_book_id = Books.book_id
 INNER JOIN Readers ON Taken_books.id_reader = Readers.reader_id
 INNER JOIN Author ON Books.id_author = Author.Author_id;
 ```
-![screen](screenshots/image15.png)
+![screen](screenshots/image42.png)
 - Результат
 
 Каждая строка в результате будет представлять информацию о конкретной книге, взятой читателем, включая название книги, имя автора, имя читателя и дату взятия книги
@@ -197,7 +197,7 @@ LEFT JOIN Taken_books ON Readers.reader_id = Taken_books.id_reader
 LEFT JOIN Books ON Taken_books.id_book = Books.book_id
 LEFT JOIN Author ON Books.id_author = Author.Author_id;
 ```
-![screen](screenshots/image16.png)
+![screen](screenshots/image43.png)
 - Результат
 
 Каждая строка в результате будет представлять информацию о конкретной книге, взятой читателем, включая название книги, имя автора и имя читателя
@@ -210,7 +210,7 @@ RIGHT JOIN Taken_books ON Books.book_id = Taken_books.id_book
 RIGHT JOIN Readers ON Taken_books.id_reader = Readers.reader_id
 RIGHT JOIN Author ON Books.id_author = Author.Author_id;
 ```
-![screen](screenshots/image17.png)
+![screen](screenshots/image44.png)
 - Результат
 
 Каждая строка представляет информацию о конкретной книге, включая данные о читателе, названии книги и авторе
@@ -223,7 +223,7 @@ FULL OUTER JOIN Taken_books ON Books.book_id = Taken_books.id_book
 FULL OUTER Readers ON Taken_books.id_reader = Readers.reader_id
 FULL OUTER Author ON Books.id_author = Author.Author_id;
 ```
-![screen](screenshots/image18.png)
+![screen](screenshots/image45.png)
 - Результат
 
  Таблица будет содержать информацию о книгах, именах читателей, именах авторов и связях между ними на основе указанных ключей
@@ -262,7 +262,7 @@ WITH Readers_taken_books AS
      	INNER JOIN Readers on Readers.reader_id = Taken_books.Taken_book_id)
 SELECT * FROM Readers_taken_books;
 ```
-![screen](screenshots/image21.png)
+![screen](screenshots/image41.png)
 - Результат
 
  Таблица будет содержать все столбцы из таблицы Readers, отфильтрованные по читателям, которые взяли книги. Каждая строка результата будет представлять информацию о читателе, который взял книгу
