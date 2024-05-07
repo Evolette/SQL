@@ -38,7 +38,7 @@ SELECT * FROM Taken_books;
 ![screen](screenshots/image25.png)
 
 ### 2.3 Таблица Readers:
-![screen](screenshots/image38.png)
+![screen](screenshots/image36.png)
 
  - readers_id (INTEGER, PRIMARY KEY) - уникальный идентификатор читателя
  - fio (VARCHAR(50)) - ФИО читателя
