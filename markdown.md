@@ -21,9 +21,9 @@
 ```
 SELECT * FROM Books;
 ```
-![screen](screenshots/image1.png)
- ### 2.2 Таблица Taken_books:
 ![screen](screenshots/image48.png)
+ ### 2.2 Таблица Taken_books:
+![screen](screenshots/image49.png)
 
  - Taken_books_id (INTEGER, PRIMARY KEY) - уникальный идентификатор взятой книги
  - id_books (INT) - идентификатор книги, связан с таблицей Books по полю booksID
@@ -35,10 +35,10 @@ SELECT * FROM Books;
 ```
 SELECT * FROM Taken_books;
 ```
-![screen](screenshots/image25.png)
+![screen](screenshots/image50.png)
 
 ### 2.3 Таблица Readers:
-![screen](screenshots/image49.png)
+![screen](screenshots/image51.png)
 
  - readers_id (INTEGER, PRIMARY KEY) - уникальный идентификатор читателя
  - fio (VARCHAR(50)) - ФИО читателя
@@ -49,10 +49,10 @@ SELECT * FROM Taken_books;
 ```
 SELECT * FROM Readers;
 ```
-![screen](screenshots/image50.png)
+![screen](screenshots/image52.png)
 
 ### 2.4 Таблица Author:
-![screen](screenshots/image22.png)
+![screen](screenshots/image53.png)
 
  - Author_id (INTEGER, PRIMARY KEY) - уникальный идентификатор автора
  - fio (VARCHAR(50)) - ФИО автора
@@ -62,7 +62,7 @@ SELECT * FROM Readers;
 ```
 SELECT * FROM Author;
 ```
-![screen](screenshots/image24.png)
+![screen](screenshots/image54.png)
 
 ## 3. UNION
 ```
