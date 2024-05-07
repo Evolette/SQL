@@ -25,7 +25,7 @@ SELECT * FROM Books;
  ### 2.2 Таблица Taken_books:
 ![screen](screenshots/image49.png)
 
- - Taken_books_id (INTEGER, PRIMARY KEY) - уникальный идентификатор взятой книги
+ - taken_books_id (INTEGER, PRIMARY KEY) - уникальный идентификатор взятой книги
  - id_books (INT) - идентификатор книги, связан с таблицей Books по полю booksID
  - id_readers (INT) - идентификатор читателя, связан с таблицей Readers по полю readers_id
  - date_of_collection (TEXT) - дата получения книги
@@ -54,7 +54,7 @@ SELECT * FROM Readers;
 ### 2.4 Таблица Author:
 ![screen](screenshots/image53.png)
 
- - Author_id (INTEGER, PRIMARY KEY) - уникальный идентификатор автора
+ - author_id (INTEGER, PRIMARY KEY) - уникальный идентификатор автора
  - fio (VARCHAR(50)) - ФИО автора
  - date_of_birth (TEXT) - дата рождения автора
  - title_of_books (VARCHAR(50)) - название книги
