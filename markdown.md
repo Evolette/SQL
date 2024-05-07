@@ -9,7 +9,7 @@
 
 
 ### 2.1 Таблица Books
-![screen](screenshots/image35.png)
+![screen](screenshots/image38.png)
 
  - booksID (INTEGER, PRIMARY KEY) - уникальный идентификатор книги
  - title (VARCHAR(50)) - название книги
