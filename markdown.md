@@ -184,7 +184,7 @@ INNER JOIN Books ON Taken_books.Taken_book_id = Books.book_id
 INNER JOIN Readers ON Taken_books.id_reader = Readers.reader_id
 INNER JOIN Author ON Books.id_author = Author.Author_id;
 ```
-![screen](screenshots/image42.png)
+![screen](screenshots/image55.png)
 - Результат
 
 Каждая строка в результате будет представлять информацию о конкретной книге, взятой читателем, включая название книги, имя автора, имя читателя и дату взятия книги
@@ -197,7 +197,7 @@ LEFT JOIN Taken_books ON Readers.reader_id = Taken_books.id_reader
 LEFT JOIN Books ON Taken_books.id_book = Books.book_id
 LEFT JOIN Author ON Books.id_author = Author.Author_id;
 ```
-![screen](screenshots/image43.png)
+![screen](screenshots/image56.png)
 - Результат
 
 Каждая строка в результате будет представлять информацию о конкретной книге, взятой читателем, включая название книги, имя автора и имя читателя
@@ -210,7 +210,7 @@ RIGHT JOIN Taken_books ON Books.book_id = Taken_books.id_book
 RIGHT JOIN Readers ON Taken_books.id_reader = Readers.reader_id
 RIGHT JOIN Author ON Books.id_author = Author.Author_id;
 ```
-![screen](screenshots/image44.png)
+![screen](screenshots/image56.png)
 - Результат
 
 Каждая строка представляет информацию о конкретной книге, включая данные о читателе, названии книги и авторе
