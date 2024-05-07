@@ -11,7 +11,7 @@
 ### 2.1 Таблица Books
 ![screen](screenshots/image38.png)
 
- - booksID (INTEGER, PRIMARY KEY) - уникальный идентификатор книги
+ - books_id (INTEGER, PRIMARY KEY) - уникальный идентификатор книги
  - title (VARCHAR(50)) - название книги
  - price (INT) - цена книги
  - genre (VARCHAR(50)) - жанр книги
