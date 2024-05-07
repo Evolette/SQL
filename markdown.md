@@ -143,7 +143,7 @@ HAVING AVG(price) > (
 ```
 SELECT id_readers, COUNT(*) AS num_taken_books
 FROM Taken_books
-GROUP BY id_readers;
+GROUP BY id_reader;
 ```
 ![screen](screenshots/image12.png)
 - Результат 
@@ -180,8 +180,8 @@ LIMIT 3 OFFSET 1;
 ```
 SELECT Readers.fio AS ReadersName, Books.title, Author.fio AS AuthorName, Taken_books.date_of_collection
 FROM Taken_books
-INNER JOIN Books ON Taken_books.Taken_books_id = Books.books_id
-INNER JOIN Readers ON Taken_books.id_readers = Readers.readers_id
+INNER JOIN Books ON Taken_books.Taken_book_id = Books.book_id
+INNER JOIN Readers ON Taken_books.id_reader = Readers.reader_id
 INNER JOIN Author ON Books.id_author = Author.Author_id;
 ```
 ![screen](screenshots/image15.png)
@@ -193,8 +193,8 @@ INNER JOIN Author ON Books.id_author = Author.Author_id;
 ```
 SELECT Readers.fio AS ReadersName, Books.title AS BooksTitile, Author.fio AS AuthorName
 FROM Readers
-LEFT JOIN Taken_books ON Readers.readers_id = Taken_books.id_readers
-LEFT JOIN Books ON Taken_books.id_books = Books.books_id
+LEFT JOIN Taken_books ON Readers.reader_id = Taken_books.id_reader
+LEFT JOIN Books ON Taken_books.id_book = Books.book_id
 LEFT JOIN Author ON Books.id_author = Author.Author_id;
 ```
 ![screen](screenshots/image16.png)
@@ -206,8 +206,8 @@ LEFT JOIN Author ON Books.id_author = Author.Author_id;
 ```
 SELECT Books.title AS BooksTitle, Readers.fio AS ReadersName, Author.fio as AuthorName
 FROM Books
-RIGHT JOIN Taken_books ON Books.books_id = Taken_books.id_books
-RIGHT JOIN Readers ON Taken_books.id_readers = Readers.readers_id
+RIGHT JOIN Taken_books ON Books.book_id = Taken_books.id_book
+RIGHT JOIN Readers ON Taken_books.id_reader = Readers.reader_id
 RIGHT JOIN Author ON Books.id_author = Author.Author_id;
 ```
 ![screen](screenshots/image17.png)
@@ -219,8 +219,8 @@ RIGHT JOIN Author ON Books.id_author = Author.Author_id;
 ```
 SELECT Books.title AS BooksTitle, Readers.fio AS ReadersName, Author.fio as AuthorName
 FROM Books
-FULL OUTER JOIN Taken_books ON Books.books_id = Taken_books.id_books
-FULL OUTER Readers ON Taken_books.id_readers = Readers.readers_id
+FULL OUTER JOIN Taken_books ON Books.book_id = Taken_books.id_book
+FULL OUTER Readers ON Taken_books.id_reader = Readers.reader_id
 FULL OUTER Author ON Books.id_author = Author.Author_id;
 ```
 ![screen](screenshots/image18.png)
@@ -259,7 +259,7 @@ FROM Books;
 ```
 WITH Readers_taken_books AS 
 	(SELECT Readers.* FROM Taken_books 
-     	INNER JOIN Readers on Readers.readers_id = Taken_books.Taken_books_id)
+     	INNER JOIN Readers on Readers.reader_id = Taken_books.Taken_book_id)
 SELECT * FROM Readers_taken_books;
 ```
 ![screen](screenshots/image21.png)
