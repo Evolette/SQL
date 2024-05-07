@@ -23,7 +23,7 @@ SELECT * FROM Books;
 ```
 ![screen](screenshots/image1.png)
  ### 2.2 Таблица Taken_books:
-![screen](screenshots/image33.png)
+![screen](screenshots/image37.png)
 
  - Taken_books_id (INTEGER, PRIMARY KEY) - уникальный идентификатор взятой книги
  - id_books (INT) - идентификатор книги, связан с таблицей Books по полю booksID
@@ -38,7 +38,7 @@ SELECT * FROM Taken_books;
 ![screen](screenshots/image25.png)
 
 ### 2.3 Таблица Readers:
-![screen](screenshots/image34.png)
+![screen](screenshots/image38.png)
 
  - readers_id (INTEGER, PRIMARY KEY) - уникальный идентификатор читателя
  - fio (VARCHAR(50)) - ФИО читателя
