@@ -220,8 +220,8 @@ RIGHT JOIN Author ON Books.id_author = Author.Author_id;
 SELECT Books.title AS BooksTitle, Readers.fio AS ReadersName, Author.fio as AuthorName
 FROM Books
 FULL OUTER JOIN Taken_books ON Books.book_id = Taken_books.id_book
-FULL OUTER Readers ON Taken_books.id_reader = Readers.reader_id
-FULL OUTER Author ON Books.id_author = Author.Author_id;
+FULL OUTER JOIN Readers ON Taken_books.id_reader = Readers.reader_id
+FULL OUTER JOIN Author ON Books.id_author = Author.Author_id;
 ```
 ![screen](screenshots/image45.png)
 - Результат
