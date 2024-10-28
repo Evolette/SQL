@@ -8,69 +8,69 @@
 
 
 
-### 2.1 Таблица Books
+### 2.1 Таблица book
 ![screen](screenshots/image47.png)
 
- - books_id (INTEGER, PRIMARY KEY AUTOINCREMENT) - уникальный идентификатор книги
+ - id (INTEGER, PRIMARY KEY AUTOINCREMENT) - уникальный идентификатор книги
  - title (VARCHAR(50)) - название книги
  - price (INT) - цена книги
  - genre (VARCHAR(50)) - жанр книги
- - year_of_Publishing (DATE) - год издания книги
- - id_author (INT) - идентификатор автора книги, связан с таблицей Author по полю Author_id
+ - year_of_publishing (DATE) - год издания книги
+ - author_id (INT) - идентификатор автора книги, связан с таблицей Author по полю Author_id
 
 ```
-SELECT * FROM Books;
+SELECT * FROM book;
 ```
 ![screen](screenshots/image48.png)
- ### 2.2 Таблица Taken_books:
+ ### 2.2 Таблица taken_book:
 ![screen](screenshots/image49.png)
 
- - taken_books_id (INTEGER, PRIMARY KEY AUTOINCREMENT) - уникальный идентификатор взятой книги
- - id_books (INT) - идентификатор книги, связан с таблицей Books по полю booksID
- - id_readers (INT) - идентификатор читателя, связан с таблицей Readers по полю readers_id
- - date_of_collection (TEXT) - дата получения книги
- - date_of_return (TEXT) - дата возврата книги
+ - id (INTEGER, PRIMARY KEY AUTOINCREMENT) - уникальный идентификатор взятой книги
+ - book_id (INT) - идентификатор книги, связан с таблицей Books по полю booksID
+ - reader_id (INT) - идентификатор читателя, связан с таблицей Readers по полю readers_id
+ - date_of_collection (VARCHAR) - дата получения книги
+ - date_of_return (VARCHAR) - дата возврата книги
 Связи: таблица связана с таблицами Books (по id_books) и Readers (по id_readers)
 
 ```
-SELECT * FROM Taken_books;
+SELECT * FROM taken_book;
 ```
 ![screen](screenshots/image50.png)
 
-### 2.3 Таблица Readers:
+### 2.3 Таблица reader:
 ![screen](screenshots/image51.png)
 
- - readers_id (INTEGER, PRIMARY KEY AUTOINCREMENT) - уникальный идентификатор читателя
+ - id (INTEGER, PRIMARY KEY AUTOINCREMENT) - уникальный идентификатор читателя
  - fio (VARCHAR(50)) - ФИО читателя
  - telephone (VARCHAR(50)) - телефон читателя
  - e_mail (VARCHAR(50)) - электронная почта читателя
- - date_of_birth (TEXT) - дата рождения читателя
+ - date_of_birth (VARCHAR(50) - дата рождения читателя
    
 ```
-SELECT * FROM Readers;
+SELECT * FROM reader;
 ```
 ![screen](screenshots/image52.png)
 
-### 2.4 Таблица Author:
+### 2.4 Таблица author:
 ![screen](screenshots/image53.png)
 
- - author_id (INTEGER, PRIMARY KEY AUTOINCREMENT) - уникальный идентификатор автора
+ - id (INTEGER, PRIMARY KEY AUTOINCREMENT) - уникальный идентификатор автора
  - fio (VARCHAR(50)) - ФИО автора
- - date_of_birth (TEXT) - дата рождения автора
+ - date_of_birth (DATE) - дата рождения автора
  - title_of_books (VARCHAR(50)) - название книги
 
 ```
-SELECT * FROM Author;
+SELECT * FROM author;
 ```
 ![screen](screenshots/image54.png)
 
 ## 3. UNION
 ```
 SELECT title AS Name
-FROM Books
+FROM book
 UNION
 SELECT fio AS Name
-FROM Readers;
+FROM reader;
 ```
 ![screen](screenshots/image7.png)
   
@@ -83,7 +83,7 @@ Name - общее название для имен из столбцов "title"
 ## 4. ORDER BY
 ```
 SELECT title, price
-FROM Books
+FROM book
 ORDER BY price DESC;
 ```
 ![screen](screenshots/image8.png)
@@ -96,7 +96,7 @@ ORDER BY price DESC;
 ## 5. HAVING
 ```
 SELECT genre, AVG(price) AS AvgPrice
-FROM Books
+FROM book
 GROUP BY genre
 HAVING AVG(price) > 500;
 ```
@@ -111,8 +111,8 @@ HAVING AVG(price) > 500;
 
 ### 6.1 SELECT
 ```
-SELECT title, price, price - (SELECT AVG(price) FROM Books) AS "Разница"
-FROM Books
+SELECT title, price, price - (SELECT AVG(price) FROM book) AS "Разница"
+FROM book
 WHERE price - (SELECT AVG(price) FROM Books) > 0;
 ```
 ![screen](screenshots/image23.png)
@@ -124,11 +124,11 @@ WHERE price - (SELECT AVG(price) FROM Books) > 0;
 ### 6.2 WHERE 
 ```
 SELECT genre
-FROM Books
+FROM book
 GROUP BY genre
 HAVING AVG(price) > (
     SELECT AVG(price)
-    FROM Books
+    FROM book
 );
 ```
 ![screen](screenshots/image10.png)
@@ -141,9 +141,9 @@ HAVING AVG(price) > (
 
 ### 7.1 Агрегатные функции
 ```
-SELECT id_reader, COUNT(*) AS num_taken_books
-FROM Taken_books
-GROUP BY id_reader;
+SELECT reader_id, COUNT(*) AS num_taken_books
+FROM taken_book
+GROUP BY reader_id;
 ```
 ![screen](screenshots/image46.png)
 - Результат 
@@ -153,7 +153,7 @@ GROUP BY id_reader;
 ### 7.2 Ранжирующие функции
 ```
 SELECT title, genre, price, RANK() OVER (PARTITION BY genre ORDER BY price DESC) as price_rank
-FROM Books;
+FROM book;
 ```
 ![screen](screenshots/image13.png)
 
@@ -163,10 +163,10 @@ FROM Books;
 
 ### 7.3 Функции смещения
 ```
-SELECT title, genre, year_of_Publishing
-FROM Books
+SELECT title, genre, year_of_publishing
+FROM book
 WHERE genre = 'horror'
-ORDER BY year_of_Publishing
+ORDER BY year_of_publishing
 LIMIT 3 OFFSET 1;
 ```
 ![screen](screenshots/image14.png)
@@ -178,11 +178,11 @@ LIMIT 3 OFFSET 1;
 
 ### 8.1 INNER JOIN
 ```
-SELECT Readers.fio AS ReadersName, Books.title, Author.fio AS AuthorName, Taken_books.date_of_collection
-FROM Taken_books
-INNER JOIN Books ON Taken_books.Taken_book_id = Books.book_id
-INNER JOIN Readers ON Taken_books.id_reader = Readers.reader_id
-INNER JOIN Author ON Books.id_author = Author.Author_id;
+SELECT reader.fio AS ReadersName, book.title, author.fio AS AuthorName, taken_book.date_of_collection
+FROM taken_book
+INNER JOIN book ON taken_book.id = book.id
+INNER JOIN reader ON taken_book.reader_id = reader.id
+INNER JOIN author ON book.author_id = author.id;
 ```
 ![screen](screenshots/image55.png)
 - Результат
@@ -191,11 +191,11 @@ INNER JOIN Author ON Books.id_author = Author.Author_id;
 
 ### 8.2 LEFT JOIN
 ```
-SELECT Readers.fio AS ReadersName, Books.title AS BooksTitile, Author.fio AS AuthorName
-FROM Readers
-LEFT JOIN Taken_books ON Readers.reader_id = Taken_books.id_reader
-LEFT JOIN Books ON Taken_books.id_book = Books.book_id
-LEFT JOIN Author ON Books.id_author = Author.Author_id;
+SELECT reader.fio AS ReadersName, book.title AS BooksTitile, author.fio AS AuthorName
+FROM readers
+LEFT JOIN taken_book ON reader.reader_id = Taken_books.reader_id
+LEFT JOIN Books ON taken_book.book_id = Books.id
+LEFT JOIN author ON book.author_id = author.id;
 ```
 ![screen](screenshots/image56.png)
 - Результат
@@ -204,11 +204,11 @@ LEFT JOIN Author ON Books.id_author = Author.Author_id;
 
 ### 8.3 RIGHT JOIN
 ```
-SELECT Books.title AS BooksTitle, Readers.fio AS ReadersName, Author.fio as AuthorName
+SELECT book.title AS BooksTitle, reader.fio AS ReadersName, author.fio as AuthorName
 FROM Books
-RIGHT JOIN Taken_books ON Books.book_id = Taken_books.id_book
-RIGHT JOIN Readers ON Taken_books.id_reader = Readers.reader_id
-RIGHT JOIN Author ON Books.id_author = Author.Author_id;
+RIGHT JOIN taken_book ON book.book_id = taken_book.book_id
+RIGHT JOIN reader ON taken_book.reader_id = reader.id
+RIGHT JOIN author ON book.author_id = author.id;
 ```
 ![screen](screenshots/image56.png)
 - Результат
@@ -217,11 +217,11 @@ RIGHT JOIN Author ON Books.id_author = Author.Author_id;
 
 ### 8.4 FULL OUTER JOIN 
 ```
-SELECT Books.title AS BooksTitle, Readers.fio AS ReadersName, Author.fio as AuthorName
+SELECT book.title AS BooksTitle, reader.fio AS ReadersName, author.fio as AuthorName
 FROM Books
-FULL OUTER JOIN Taken_books ON Books.book_id = Taken_books.id_book
-FULL OUTER JOIN Readers ON Taken_books.id_reader = Readers.reader_id
-FULL OUTER JOIN Author ON Books.id_author = Author.Author_id;
+FULL OUTER JOIN taken_books ON book.book_id = taken_book.id
+FULL OUTER JOIN reader ON taken_book.id_reader = reader.id
+FULL OUTER JOIN author ON book.author_id = author.id;
 ```
 ![screen](screenshots/image45.png)
 - Результат
@@ -230,9 +230,9 @@ FULL OUTER JOIN Author ON Books.id_author = Author.Author_id;
 
 ### 8.5 CROSS JOIN
 ```
-SELECT Author.date_of_birth, Readers.date_of_birth
-FROM Author
-CROSS JOIN Readers;
+SELECT author.date_of_birth, reader.date_of_birth
+FROM author
+CROSS JOIN reader;
 ```
 ![screen](screenshots/image19.png)
 - Результат
@@ -247,7 +247,7 @@ SELECT title, genre,
            WHEN price BETWEEN 100 AND 300 THEN 'Средние'
            ELSE 'Дорогие'
        END AS price_category
-FROM Books;
+FROM book;
 ```
 ![screen](screenshots/image20.png)
 
@@ -257,10 +257,10 @@ FROM Books;
 
 ## 10. WITH
 ```
-WITH Readers_taken_books AS 
-	(SELECT Readers.* FROM Taken_books 
-     	INNER JOIN Readers on Readers.reader_id = Taken_books.Taken_book_id)
-SELECT * FROM Readers_taken_books;
+WITH readers_taken_book AS 
+	(SELECT reader.* FROM T=taken_book
+     	INNER JOIN reader on reader.id = taken_book.id)
+SELECT * FROM reader_taken_books;
 ```
 ![screen](screenshots/image41.png)
 - Результат
